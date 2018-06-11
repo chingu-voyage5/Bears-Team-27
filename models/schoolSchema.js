@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const AddressSchema = require("./addressSchema");
+const ContactSchema = require("./contactSchema");
 const Schema = mongoose.Schema;
 
 const schoolSchema = new Schema({
@@ -12,20 +13,7 @@ const schoolSchema = new Schema({
     required: true
   },
   address: AddressSchema,
-  contact: {
-    phone_number: {
-      type: Number,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
-    },
-    website: {
-      type: String,
-      required: false
-    }
-  },
+  contact: ContactSchema,
   faculty: {
     type: Schema.Types.ObjectId,
     ref: "Teacher"
@@ -61,4 +49,5 @@ const schoolSchema = new Schema({
     ]
   }
 });
+
 module.exports = schoolSchema;
