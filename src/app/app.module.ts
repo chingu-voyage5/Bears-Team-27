@@ -2,47 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookCreateComponent } from './book-create/book-create.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
+import { IndexComponent } from './index/index.component';
+import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { ConsoleComponent } from './console/console.component';
 
 const appRoutes: Routes = [
   {
-    path: 'books',
-    component: BookComponent,
-    data: { title: 'Book List' }
+    path: "",
+    redirectTo: "index",
+    pathMatch: "full"
   },
   {
-    path: 'book-details/:id',
-    component: BookDetailComponent,
-    data: { title: 'Book Details' }
-  },
-  {
-    path: 'book-create',
-    component: BookCreateComponent,
-    data: { title: 'Create Book' }
-    },
-    {
-    path: 'book-edit/:id',
-    component: BookEditComponent,
-    data: { title: 'Edit Book' }
-  },
-  { path: '',
-    redirectTo: '/books',
-    pathMatch: 'full'
+    path: "index",
+    component: IndexComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
-    BookDetailComponent,
-    BookCreateComponent,
-    BookEditComponent
+    IndexComponent,
+    SearchComponent,
+    LoginComponent,
+    ConsoleComponent
   ],
   imports: [
     BrowserModule,
